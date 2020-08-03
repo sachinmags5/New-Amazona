@@ -31,7 +31,8 @@ const listProducts = (
         '&searchKeyword=' +
         searchKeyword +
         '&sortOrder=' +
-        sortOrder
+        sortOrder // + '#products'
+        //added + #products
     );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {

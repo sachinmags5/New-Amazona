@@ -24,6 +24,7 @@ function ProfileScreen(props) {
   const { loading, success, error } = userUpdate;
 
   const myOrderList = useSelector(state => state.myOrderList);
+  
   const { loading: loadingOrders, orders, error: errorOrders } = myOrderList;
   useEffect(() => {
     if (userInfo) {
@@ -93,6 +94,7 @@ function ProfileScreen(props) {
                   <th>DATE</th>
                   <th>TOTAL</th>
                   <th>PAID</th>
+                  <th>Expected Delivery</th>
                   <th>ACTIONS</th>
                 </tr>
               </thead>
@@ -101,7 +103,11 @@ function ProfileScreen(props) {
                   <td>{order._id}</td>
                   <td>{order.createdAt}</td>
                   <td>{order.totalPrice}</td>
-                  <td>{order.isPaid}</td>
+                  {/* <td>{order.isPaid}</td> */}
+                  <td>{order.isPaid ? "Paid" : "Not paid"}</td>
+                  <td>{order.isPaid ?
+                   (order.isDelivered ? "Delivered" : "Within 7 Days")
+                  : "Complete the Payment!"}</td>
                   <td>
                     <Link to={"/order/" + order._id}>DETAILS</Link>
                   </td>

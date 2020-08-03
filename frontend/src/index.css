@@ -49,6 +49,7 @@ button {
 .header-links a:hover {
   color: #ff8000;
 }
+
 .main {
   grid-area: main;
 }
@@ -56,9 +57,13 @@ button {
   grid-area: footer;
   background-color: #203040;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: flex; //added */
+  height: 30rem;
+  padding: 5rem ;
+
 }
 a {
   text-decoration: none;
@@ -147,7 +152,7 @@ a > .rating > span:last-child {
   position: fixed;
   transition: all 0.5s;
   transform: translateX(-30rem);
-  width: 30rem;
+  width: 20rem;
   background-color: #f0f0f0;
   height: 100%;
 }
@@ -462,4 +467,10 @@ tbody > tr:nth-child(odd) {
 
 .categories a:hover {
   background-color: #c0c0c0;
+}
+
+
+.carousel{
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }

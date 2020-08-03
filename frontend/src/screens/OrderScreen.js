@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { createOrder, detailsOrder, payOrder } from '../actions/orderActions';
 import PaypalButton from '../components/PaypalButton';
+
 function OrderScreen(props) {
 
   const orderPay = useSelector(state => state.orderPay);
@@ -26,8 +27,9 @@ function OrderScreen(props) {
   const { loading, order, error } = orderDetails;
 
   return loading ? <div>Loading ...</div> : error ? <div>{error}</div> :
-
+ 
     <div>
+     
       <div className="placeorder">
         <div className="placeorder-info">
           <div>
@@ -109,19 +111,19 @@ function OrderScreen(props) {
             </li>
             <li>
               <div>Items</div>
-              <div>${order.itemsPrice}</div>
+              <div>Rs.{order.itemsPrice}</div>
             </li>
             <li>
               <div>Shipping</div>
-              <div>${order.shippingPrice}</div>
+              <div>Rs.{order.shippingPrice}</div>
             </li>
             <li>
               <div>Tax</div>
-              <div>${order.taxPrice}</div>
+              <div>Rs.{order.taxPrice}</div>
             </li>
             <li>
               <div>Order Total</div>
-              <div>${order.totalPrice}</div>
+              <div>Rs.{order.totalPrice}</div>
             </li>
           </ul>
 

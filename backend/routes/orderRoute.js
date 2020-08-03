@@ -22,15 +22,6 @@ router.get("/:id", isAuth, async (req, res) => {
   }
 });
 
-router.delete("/:id", isAuth, isAdmin, async (req, res) => {
-  const order = await Order.findOne({ _id: req.params.id });
-  if (order) {
-    const deletedOrder = await order.remove();
-    res.send(deletedOrder);
-  } else {
-    res.status(404).send("Order Not Found.")
-  }
-});
 
 router.post("/", isAuth, async (req, res) => {
   const newOrder = new Order({
@@ -64,6 +55,30 @@ router.put("/:id/pay", isAuth, async (req, res) => {
     res.send({ message: 'Order Paid.', order: updatedOrder });
   } else {
     res.status(404).send({ message: 'Order not found.' })
+  }
+});
+
+
+router.delete("/:id", isAuth, isAdmin, async (req, res) => {
+  const order = await Order.findOne({ _id: req.params.id });
+  if (order) {
+    const deletedOrder = await order.remove();
+    res.send(deletedOrder);
+  } else {
+    res.status(404).send("Order Not Found.")
+  }
+});
+// edited by me
+
+router.get("/:id/deliver", isAuth, isAdmin, async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (order) {
+    order.isDelivered = true;
+    order.deliveredAt = Date.now();
+    const updatedOrder = await order.save();
+    res.send({ message: 'Order Delivered.', order: updatedOrder });
+  } else {
+    res.status(404).send({ message: 'Order not Delivered!.' })
   }
 });
 

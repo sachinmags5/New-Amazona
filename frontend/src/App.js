@@ -14,6 +14,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
+import Footernew from './header-footer/Footer';
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -25,6 +26,11 @@ function App() {
   const closeMenu = () => {
     document.querySelector('.sidebar').classList.remove('open');
   };
+// Sachin
+  const user = () => {
+    return(<h1>welcome Sizeing info</h1>);
+  }
+//
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -54,7 +60,7 @@ function App() {
           </div>
         </header>
         <aside className="sidebar">
-          <h3>Shopping Categories</h3>
+          <h3>Shop By Category</h3>
           <button className="sidebar-close-button" onClick={closeMenu}>
             x
           </button>
@@ -71,6 +77,8 @@ function App() {
         <main className="main">
           <div className="content">
             <Route path="/orders" component={OrdersScreen} />
+            {/* added by me below line */}
+            <Route path="/orders/:id" component={OrdersScreen} />
             <Route path="/profile" component={ProfileScreen} />
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/products" component={ProductsScreen} />
@@ -82,10 +90,13 @@ function App() {
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/category/:id" component={HomeScreen} />
+            {/* sachin */}
+            <Route path="/SizingScreen" component={user} />
             <Route path="/" exact={true} component={HomeScreen} />
           </div>
         </main>
-        <footer className="footer">All right reserved.</footer>
+        {/* <footer className="footer">&#169;  <b> Amazona </b> | Designed and Managed By Sachin Magdum.</footer> */}
+        <Footernew/>
       </div>
     </BrowserRouter>
   );
