@@ -228,3 +228,4 @@ This section is about uploading images amazon aws s3 cloud server.
 
 In this tutorial, we have made an eCommerce website like Amazon. Feel free to change this project based on your needs and add it to your portfolio.
 Also, I will love to hear your comment about this React and Node tutorial. Please share your thoughts here.
+Thank you.
